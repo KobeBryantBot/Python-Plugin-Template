@@ -1,0 +1,5 @@
+{
+    "name": "Python-Plugin-Template",
+    "entry": "main.py",
+    "type": "script-python"
+}
