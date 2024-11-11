@@ -1,6 +1,6 @@
-import LoggerAPI
+from KobeBryantAPI import Logger
 
-logger = LoggerAPI.Logger("Python-Plugin-Template")
+logger = Logger()
 
 
 # 这里写插件加载时需要执行的操作
