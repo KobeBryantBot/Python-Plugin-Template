@@ -1,4 +1,4 @@
-from KobeBryantAPI import Logger
+from KobeBryantAPI import Logger  # type: ignore
 
 logger = Logger()
 
