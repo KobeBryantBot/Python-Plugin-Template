@@ -1,2 +1,2 @@
-# Script-Plugin-Template
-Script plugin template for KobeBryant
+# Python插件模板
+KobeBryantScriptEngine-Python引擎的Python插件模板
