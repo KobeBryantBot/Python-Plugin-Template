@@ -3,7 +3,9 @@ from typing import Optional, List, Union, Callable, Dict, overload, override, An
 
 class CommandRegistry:
     @staticmethod
-    def registerCommand(cmd: str, callback: Callable[[List[str]], None]) -> bool: ...
+    def registerSimpleCommand(
+        cmd: str, callback: Callable[[List[str]], None]
+    ) -> bool: ...
     @staticmethod
     def unregisterCommand(cmd: str) -> bool: ...
     @staticmethod
@@ -13,13 +15,21 @@ class Listener:
     mId: int
     mType: str
 
+class Event:
+    mEventData: Dict[str, Any]
+    @staticmethod
+    def newEvent(name: str, data: Dict[str, Any]) -> Event: ...
+    def block_pass(self) -> None: ...
+
 class EventBus:
     @staticmethod
-    def add(event: str, callback: Callable[[Dict[str, Any]], None]) -> Listener: ...
+    def add(
+        event: str, callback: Callable[[Event], None], priority: int = 500
+    ) -> Listener: ...
     @staticmethod
     def remove(listener: Listener) -> bool: ...
     @staticmethod
-    def emit(event: str, data: Dict[str, Any]) -> Listener: ...
+    def emit(event: str, data: Event) -> Listener: ...
 
 class Logger:
     class LogLevel(Enum):
